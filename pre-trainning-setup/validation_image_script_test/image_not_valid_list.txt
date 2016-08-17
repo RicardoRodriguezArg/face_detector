@@ -1,0 +1,1 @@
+/home/ricardo/Desktop/CODIGO/ComputerVision/face_detector/tests/validation_image_script_test/image_not_valids/image_1.jpg
