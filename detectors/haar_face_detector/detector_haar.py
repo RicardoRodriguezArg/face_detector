@@ -4,8 +4,8 @@ import cv2
 
 
 class FaceDetector(object):
-    __IMAGE_HEIGHT_SCALE = 1.3
-    __IMAGE_WIDTH_SCALE = 5
+    __IMAGE_SCALE_FACTOR = 1.3
+    __IMAGE_MIN_NEIGHBORS = 5
 
     def __init__(self, xml_file_trainning_detector):
         self.__face_classifier = cv2.CascadeClassifier(xml_file_trainning_detector)
@@ -19,7 +19,7 @@ class FaceDetector(object):
     def face_detection_data(self, raw_image):
         self.__faces = None
         grey_image = self.__preprocess_image(raw_image)
-        self.__faces =  self.__face_classifier.detectMultiScale(grey_image, scaleFactor=1.2, minNeighbors=5, minSize=(50, 50))
+        self.__faces =  self.__face_classifier.detectMultiScale(grey_image, self.__IMAGE_SCALE_FACTOR , self.__IMAGE_MIN_NEIGHBORS, minSize=(50, 50))
 
     def __preprocess_image(self, raw_image):
         gray_scale_image = cv2.cvtColor(raw_image , cv2.COLOR_BGR2GRAY)
