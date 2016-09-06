@@ -3,8 +3,8 @@ import numpy as np
 import cv2
 
 
-class FaceDetector(object):
-    __IMAGE_SCALE_FACTOR = 1.3
+class HaarDetector(object):
+    __IMAGE_SCALE_FACTOR = 1.2
     __IMAGE_MIN_NEIGHBORS = 5
 
     def __init__(self, xml_file_trainning_detector):
@@ -32,6 +32,6 @@ class FaceDetector(object):
         return self.__ACTION_HANDLER[action_to_execute]()
 
 if __name__ == '__main__':
-    face_detector = FaceDetector(sys.argv[1])
+    face_detector = HaarDetector(sys.argv[1])
     face_detector.face_detection_data(cv2.imread(sys.argv[2]))
     print "cantidad de caras: {0}".format(face_detector.get_face_count())

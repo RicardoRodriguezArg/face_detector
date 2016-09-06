@@ -49,6 +49,14 @@ def __create_parser():
                       default = False,\
                      help = "Run Pre setup steps for Detector Haar Trainning")
 
+        parser.add_option('-d','--run_hog_detector',\
+                      action = "store",\
+                      type = "string" ,\
+                      dest = "run_hog_detector",\
+                      default = False,\
+                     help = "Run HOG SVM FaceDetector")
+
+
     return parser
 
 
